@@ -1,0 +1,26 @@
+﻿  Board.cpp
+  Cell.cpp
+  Game.cpp
+D:\Everything\Works\Programming Techniques Project\PokemonConnect\PokemonMatchingProject\PokemonMatchingProject\Game.cpp(21,16): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+D:\Everything\Works\Programming Techniques Project\PokemonConnect\PokemonMatchingProject\PokemonMatchingProject\Game.cpp(42,16): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+D:\Everything\Works\Programming Techniques Project\PokemonConnect\PokemonMatchingProject\PokemonMatchingProject\Game.cpp(156,10): warning C4551: function call missing argument list
+D:\Everything\Works\Programming Techniques Project\PokemonConnect\PokemonMatchingProject\PokemonMatchingProject\Game.cpp(182,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  main.cpp
+  Menu.cpp
+D:\Everything\Works\Programming Techniques Project\PokemonConnect\PokemonMatchingProject\PokemonMatchingProject\Menu.cpp(17,33): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Player.cpp
+  System.cpp
+D:\Everything\Works\Programming Techniques Project\PokemonConnect\PokemonMatchingProject\PokemonMatchingProject\System.cpp(148,17): warning C4309: 'initializing': truncation of constant value
+D:\Everything\Works\Programming Techniques Project\PokemonConnect\PokemonMatchingProject\PokemonMatchingProject\System.cpp(149,18): warning C4309: 'initializing': truncation of constant value
+D:\Everything\Works\Programming Techniques Project\PokemonConnect\PokemonMatchingProject\PokemonMatchingProject\System.cpp(150,20): warning C4309: 'initializing': truncation of constant value
+D:\Everything\Works\Programming Techniques Project\PokemonConnect\PokemonMatchingProject\PokemonMatchingProject\System.cpp(151,21): warning C4309: 'initializing': truncation of constant value
+D:\Everything\Works\Programming Techniques Project\PokemonConnect\PokemonMatchingProject\PokemonMatchingProject\System.cpp(152,20): warning C4309: 'initializing': truncation of constant value
+D:\Everything\Works\Programming Techniques Project\PokemonConnect\PokemonMatchingProject\PokemonMatchingProject\System.cpp(153,18): warning C4309: 'initializing': truncation of constant value
+D:\Everything\Works\Programming Techniques Project\PokemonConnect\PokemonMatchingProject\PokemonMatchingProject\System.cpp(183,17): warning C4309: 'initializing': truncation of constant value
+D:\Everything\Works\Programming Techniques Project\PokemonConnect\PokemonMatchingProject\PokemonMatchingProject\System.cpp(184,18): warning C4309: 'initializing': truncation of constant value
+D:\Everything\Works\Programming Techniques Project\PokemonConnect\PokemonMatchingProject\PokemonMatchingProject\System.cpp(185,20): warning C4309: 'initializing': truncation of constant value
+D:\Everything\Works\Programming Techniques Project\PokemonConnect\PokemonMatchingProject\PokemonMatchingProject\System.cpp(186,21): warning C4309: 'initializing': truncation of constant value
+D:\Everything\Works\Programming Techniques Project\PokemonConnect\PokemonMatchingProject\PokemonMatchingProject\System.cpp(187,20): warning C4309: 'initializing': truncation of constant value
+D:\Everything\Works\Programming Techniques Project\PokemonConnect\PokemonMatchingProject\PokemonMatchingProject\System.cpp(188,18): warning C4309: 'initializing': truncation of constant value
+  Generating Code...
+  PokemonMatchingProject.vcxproj -> D:\Everything\Works\Programming Techniques Project\PokemonConnect\PokemonMatchingProject\x64\Debug\PokemonMatchingProject.exe
