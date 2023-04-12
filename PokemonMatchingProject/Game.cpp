@@ -844,6 +844,35 @@ void Game::inGame() {
 				players1.push_back(player1);
 				sort(players1.begin(), players1.end(), cmpPlayer);
 			}
+			bool check = 0;
+			for (int i1 = 1; i1 <= 6; i1++) {
+				for (int j1 = 1; j1 <= 8; j1++) {
+					for (int i2 = 1; i2 <= 6; i2++) {
+						for (int j2 = 1; j2 <= 8; j2++) {
+							if (!check && make_pair(i1, j1) != make_pair(i2, j2) &&
+								getNodeData(b->boardList[i1], j1).animal != 0 && getNodeData(b->boardList[i2], j2).animal != 0 &&
+								getNodeData(b->boardList[i1], j1).animal == getNodeData(b->boardList[i2], j2).animal) {
+								vector <pair <int, int>> currTest;
+								currTest.clear();
+								currTest.push_back(make_pair(i1, j1));
+								currTest.push_back(make_pair(i2, j2));
+								System::gotoXY(0, 0);
+								if (b->CheckLineIList(currTest[0], currTest[1]) ||
+									b->CheckLineLList(currTest[0], currTest[1]) ||
+									b->CheckLineZList(currTest[0], currTest[1]) ||
+									b->CheckLineUList(currTest[0], currTest[1])) {
+									check = 1;
+								}
+							}
+						}
+					}
+				}
+			}
+			if (!check) {
+				System::gotoXY(50, 18);
+				cout << "No moves left!";
+				resetBoard(b);
+			}
 			bool overOut = 0;
 			if (_kbhit()) {
 				int k = System::getKeyboard();
