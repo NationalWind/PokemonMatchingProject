@@ -1,4 +1,4 @@
-﻿#include "Menu.h"
+#include "Menu.h"
 
 void Menu::menuInOrder(string State[], int currSelection, int y, int maxSelecetion) {
 	int currOption = -1;

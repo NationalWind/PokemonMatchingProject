@@ -432,12 +432,12 @@ void Board::createBoard(pair <int, int> currCell, pair <bool, pair <pair <int, i
 						cout << " " << (char)board[row][col].animal << " ";
 						System::setBGandText(BRIGHT_WHITE, BLACK);
 					}
-					else if (make_pair(row, col) == suggested1 || make_pair(row, col) == suggested2) {
-						System::setBGandText(YELLOW, BLACK);
-						System::drawRectangle(x, y, 5, 3);
-						System::gotoXY(x + 1, y + 1);
-						cout << " " << (char)board[row][col].animal << " ";
-						System::setBGandText(BRIGHT_WHITE, BLACK);
+					else if (currSuggested.first && (make_pair(row, col) == suggested1 || make_pair(row, col) == suggested2)) {
+							System::setBGandText(YELLOW, BLACK);
+							System::drawRectangle(x, y, 5, 3);
+							System::gotoXY(x + 1, y + 1);
+							cout << " " << (char)board[row][col].animal << " ";
+							System::setBGandText(BRIGHT_WHITE, BLACK);
 					}
 					else {
 						System::setBGandText(BRIGHT_WHITE, BLACK);
@@ -493,14 +493,12 @@ void Board::createBoardList(pair <int, int> currCell, pair <bool, pair <pair <in
 						cout << " " << (char)p->data.animal << " ";
 						System::setBGandText(BRIGHT_WHITE, BLACK);
 					}
-					else if (make_pair(row, col) == suggested1 || make_pair(row, col) == suggested2) {
-						if (currSuggested.first) {
+					else if (currSuggested.first && (make_pair(row, col) == suggested1 || make_pair(row, col) == suggested2)) {
 							System::setBGandText(YELLOW, BLACK);
 							System::drawRectangle(x, y, 5, 3);
 							System::gotoXY(x + 1, y + 1);
 							cout << " " << (char)p->data.animal << " ";
 							System::setBGandText(BRIGHT_WHITE, BLACK);
-						}
 					}
 					else {
 						System::setBGandText(BRIGHT_WHITE, BLACK);

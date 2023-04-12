@@ -292,7 +292,8 @@ void Game::inGame() {
 	int currPlayerSelection = 0; // player menu counter
 	int currGameSelection = 0; // game menu counter
 	int gameChoosing = 0; // game mode
-	clock_t startTime; // timer start
+	clock_t startTime = clock(); // timer start
+	int currTime; // save Time;
 	pair <int, int> currCell = { 1, 1 };
 	pair <bool, pair <pair <int, int>, pair <int, int>>> currSuggested = { 0, {{0, 0}, {0, 0}} }; // move suggestion: check if is suggested, 2 suggested cell
 	//load previous data
@@ -420,6 +421,8 @@ void Game::inGame() {
 			cout << "Player (Lv2)";
 			System::gotoXY(65, 12);
 			cout << "Score";
+			System::gotoXY(72, 12);
+			cout << "Time";
 			playerY = 15, cnt = 0;
 			for (auto& player : players1) {
 				cnt++;
@@ -437,6 +440,8 @@ void Game::inGame() {
 			cout << "Player (Lv3)";
 			System::gotoXY(95, 12);
 			cout << "Score";
+			System::gotoXY(102, 12);
+			cout << "Time";
 			playerY = 15, cnt = 0;
 			for (auto& player : players2) {
 				cnt++;
@@ -553,12 +558,14 @@ void Game::inGame() {
 						for (int j = 1; j <= 8; j++)
 							b->board[i][j].state = NORMAL;
 					player1.playerScore = 0;
+					player1.playerTime = 0;
 					vector <int> tmp;
 					tmp = generateAnimal();
 					shuffleBoard(b, tmp);
 				}
 			} while (!registered);
 			countDown();
+			currTime = 0;
 			startTime = clock();
 			currState = gameMode[gameChoosing];
 		}
@@ -803,9 +810,11 @@ void Game::inGame() {
 				}
 			}
 			if (!overOut) {
-				int currTime = (clock() - startTime) / CLOCKS_PER_SEC;
-				if (currTime - player1.playerTime == 1)
-					player1.playerTime = currTime;
+				int nowTime = (clock() - startTime) / CLOCKS_PER_SEC;
+				if (nowTime - currTime == 1) {
+					currTime = nowTime;
+					player1.playerTime++;
+				}
 			}
 		}
 
@@ -1063,9 +1072,11 @@ void Game::inGame() {
 				}
 			}
 			if (!overOut) {
-				int currTime = (clock() - startTime) / CLOCKS_PER_SEC;
-				if (currTime - player1.playerTime == 1)
-					player1.playerTime = currTime;
+				int nowTime = (clock() - startTime) / CLOCKS_PER_SEC;
+				if (nowTime - currTime == 1) {
+					currTime = nowTime;
+					player1.playerTime++;
+				}
 			}
 		}
 
@@ -1082,9 +1093,9 @@ void Game::inGame() {
 			for (int i = 0; i < 8; i++)
 				for (int j = 0; j < 10; j++)
 					player1.playerBoard[i][j] = b->board[i][j];
-			modifyPlayerInfoInFile(player1.playerID, player1, SAVE_FILE1);
+			modifyPlayerInfoInFile(player1.playerID, player1, SAVE_FILE);
 			bool already = 0;
-			for (auto& player : players2) {
+			for (auto& player : players) {
 				if (player.playerID == player1.playerID) {
 					already = 1;
 					player = player1;
@@ -1092,8 +1103,8 @@ void Game::inGame() {
 				}
 			}
 			if (!already) {
-				players2.push_back(player1);
-				sort(players2.begin(), players2.end(), cmpPlayer);
+				players.push_back(player1);
+				sort(players.begin(), players.end(), cmpPlayer);
 			}
 			bool check = 0;
 			for (int i1 = 1; i1 <= 6; i1++) {
@@ -1238,7 +1249,6 @@ void Game::inGame() {
 									swap(b->board[CurrSelectedCell[1].first][j].animal, b->board[CurrSelectedCell[1].first][j + 1].animal);
 									swap(b->board[CurrSelectedCell[1].first][j].state, b->board[CurrSelectedCell[1].first][j + 1].state);
 								}
-
 								bool over = 1;
 								for (int i = 1; i <= 6; i++)
 									for (int j = 1; j <= 8; j++)
@@ -1306,7 +1316,7 @@ void Game::inGame() {
 				}
 				else if (k == 1) {
 					bool already = 0;
-					for (auto& player : players2) {
+					for (auto& player : players) {
 						if (player.playerID == player1.playerID) {
 							already = 1;
 							player = player1;
@@ -1314,16 +1324,18 @@ void Game::inGame() {
 						}
 					}
 					if (!already) {
-						players2.push_back(player1);
-						sort(players2.begin(), players2.end(), cmpPlayer);
+						players.push_back(player1);
+						sort(players.begin(), players.end(), cmpPlayer);
 					}
 					currState = State[10];
 				}
 			}
 			if (!overOut) {
-				int currTime = (clock() - startTime) / CLOCKS_PER_SEC;
-				if (currTime - player1.playerTime == 1)
-					player1.playerTime = currTime;
+				int nowTime = (clock() - startTime) / CLOCKS_PER_SEC;
+				if (nowTime - currTime == 1) {
+					currTime = nowTime;
+					player1.playerTime++;
+				}
 			}
 		}
 		if (currState == State[3])
