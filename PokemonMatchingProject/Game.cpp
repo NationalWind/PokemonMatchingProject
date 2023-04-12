@@ -987,8 +987,12 @@ void Game::inGame() {
 								}
 								bool over = 1;
 								for (int i = 1; i <= 6; i++) {
-									if (b->boardList[i] != nullptr)
-										over = 0;
+									Node* p = b->boardList[i];
+									while (p->pNext) {
+										if (p->data.state != DELETED)
+											over = 0;
+										p = p->pNext;
+									}
 								}
 								if (over) {
 									drawWinning();
